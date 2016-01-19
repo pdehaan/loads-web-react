@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from './Page';
-import { router } from './index';
+import { Pages } from './index';
 import Page from '../partials/Page';
 
 export default class ProjectBuilder extends Component {
@@ -14,8 +14,8 @@ export default class ProjectBuilder extends Component {
 
   get breadcrumbs() {
     return [
-      router.Home,
-      router.Project
+      Pages.Home.nav,
+      Pages.Project.nav
     ];
   }
 

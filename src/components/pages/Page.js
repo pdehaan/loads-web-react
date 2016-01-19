@@ -1,10 +1,13 @@
 'use strict';
 
 import React, { Component as ReactComponent } from 'react';
+import { Link as ReactLink } from 'react-router';
 
-import { router } from './index';
+import { Pages } from './index';
 
-class Page extends ReactComponent {
+export default React;
+
+export class Component extends ReactComponent {
   static get nav() {
     return {
       href: undefined,
@@ -13,7 +16,7 @@ class Page extends ReactComponent {
   }
 
   get page() {
-    return router[this.constructor.name];
+    return Pages[this.constructor.name].nav;
   }
 
   get pageTitle() {
@@ -24,5 +27,10 @@ class Page extends ReactComponent {
   }
 }
 
-export default React;
-export const Component = Page;
+export class Link extends ReactComponent {
+  render() {
+    return (
+      <ReactLink to={this.props.nav.href} className={this.props.className}>{this.props.nav.label}</ReactLink>
+    );
+  }
+}

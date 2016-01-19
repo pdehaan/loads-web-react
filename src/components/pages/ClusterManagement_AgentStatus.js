@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from './Page';
-import { router } from './index';
+import { Pages } from './index';
 import Page from '../partials/Page';
 
 export default class ClusterManagementAgentStatus extends Component {
@@ -14,15 +14,15 @@ export default class ClusterManagementAgentStatus extends Component {
 
   get breadcrumbs() {
     return [
-      router.Home,
-      router.ClusterManagement
+      Pages.Home.nav,
+      Pages.ClusterManagement.nav
     ];
   }
 
   render() {
     return (
       <Page breadcrumbs={this.breadcrumbs} nav={ClusterManagementAgentStatus.nav}>
-        <p>BRING IT</p>
+        <p>Agent Status details page</p>
       </Page>
     );
   }

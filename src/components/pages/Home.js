@@ -17,6 +17,7 @@ export default class Home extends Component {
         <p className="lead">This is the home page</p>
         <p>There are many like it, but this one is mein.</p>
         <p><a href="#/run/43">Run 43</a></p>
+        <p><a href="#/uhoh">404 page</a></p>
       </Page>
     );
   }

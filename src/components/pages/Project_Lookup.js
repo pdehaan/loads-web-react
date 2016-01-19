@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from './Page';
-import { router } from './index';
+import { Pages } from './index';
 import Page from '../partials/Page';
 
 export default class ProjectLookup extends Component {
@@ -14,14 +14,14 @@ export default class ProjectLookup extends Component {
 
   get breadcrumbs() {
     return [
-      router.Home,
-      router.Project
+      Pages.Home.nav,
+      Pages.Project.nav
     ];
   }
 
   render() {
     return (
-      <Page breadcrumbs={this.breadcrumbs} nav={router.ProjectLookup}>
+      <Page breadcrumbs={this.breadcrumbs} nav={ProjectLookup.nav}>
         <p>Project Lookup details page.</p>
       </Page>
     );

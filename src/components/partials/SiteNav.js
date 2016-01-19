@@ -1,16 +1,15 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
-import { router } from '../pages';
+import { Pages } from '../pages';
+import { Link } from '../pages/Page';
 
 class ListItemWrapper extends Component {
   render() {
-    const link = this.props.data;
-
     return (
-      <li><Link to={link.href}>{link.label}</Link></li>
+      <li><Link nav={this.props.data} /></li>
     );
   }
 }
@@ -36,6 +35,10 @@ class SiteNav extends Component {
   }
 
   render() {
+    const brandNav = {
+      href: Pages.Home.nav.href,
+      label: this.brandName
+    };
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
@@ -46,23 +49,23 @@ class SiteNav extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className="navbar-brand" to={router.Home.href}>{this.brandName}</Link>
+            <Link className="navbar-brand" nav={brandNav} />
           </div>
 
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
-              <ListItemWrapper data={router.About} />
-              <DropdownItemWrapper data={router.Project}>
-                <ListItemWrapper data={router.ProjectLookup} />
-                <ListItemWrapper data={router.ProjectBuilder} />
+              <ListItemWrapper data={Pages.About.nav} />
+              <DropdownItemWrapper data={Pages.Project.nav}>
+                <ListItemWrapper data={Pages.ProjectLookup.nav} />
+                <ListItemWrapper data={Pages.ProjectBuilder.nav} />
               </DropdownItemWrapper>
-              <DropdownItemWrapper data={router.ClusterManagement}>
-                <ListItemWrapper data={router.ClusterManagementAgentStatus} />
-                <ListItemWrapper data={router.ClusterManagementHealthCheck} />
+              <DropdownItemWrapper data={Pages.ClusterManagement.nav}>
+                <ListItemWrapper data={Pages.ClusterManagementAgentStatus.nav} />
+                <ListItemWrapper data={Pages.ClusterManagementHealthCheck.nav} />
               </DropdownItemWrapper>
-              <ListItemWrapper data={router.Reference} />
-              <ListItemWrapper data={router.Contact} />
-              <ListItemWrapper data={router.Logout} />
+              <ListItemWrapper data={Pages.Reference.nav} />
+              <ListItemWrapper data={Pages.Contact.nav} />
+              <ListItemWrapper data={Pages.Logout.nav} />
             </ul>
           </div>
         </div>

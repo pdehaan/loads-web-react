@@ -1,9 +1,7 @@
 'use strict';
 
-import { Link } from 'react-router';
-
-import React, { Component } from './Page';
-import { router } from './index';
+import React, { Component, Link } from './Page';
+import { Pages } from './index';
 import Page from '../partials/Page';
 
 export default class Project extends Component {
@@ -15,16 +13,13 @@ export default class Project extends Component {
   }
 
   render() {
-    const lookup = router.ProjectLookup;
-    const builder = router.ProjectBuilder;
-
     return (
       <Page nav={Project.nav}>
         <p className="lead">This is the Project link disambiguation page.</p>
         <p>I think you can only get here via breadcrumbs from one of the following pages:</p>
         <ul>
-          <li><Link to={lookup.href}>{lookup.label}</Link></li>
-          <li><Link to={builder.href}>{builder.label}</Link></li>
+          <li><Link nav={Pages.ProjectLookup.nav} /></li>
+          <li><Link nav={Pages.ProjectBuilder.nav} /></li>
         </ul>
       </Page>
     );

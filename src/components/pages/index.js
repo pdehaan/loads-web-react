@@ -30,9 +30,4 @@ const Pages = {
   RunDetails
 };
 
-const router = {};
-Object.keys(Pages).forEach((page) => {
-  return router[page] = Pages[page].nav;
-});
-
-export { Pages, router };
+export { Pages };
