@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-class Footer extends Component {
+export default class Footer extends Component {
   render() {
     return (
       <footer className="text-center text-muted">
@@ -12,5 +12,3 @@ class Footer extends Component {
     );
   }
 }
-
-export default Footer;

@@ -19,7 +19,7 @@ class PageTitleWrapper extends Component {
   }
 }
 
-class PageNav extends Component {
+export default class PageNav extends Component {
   render() {
     const pageTitle = this.props.pageTitle || (this.props.page && this.props.page.label);
 
@@ -31,5 +31,3 @@ class PageNav extends Component {
     );
   }
 }
-
-export default PageNav;

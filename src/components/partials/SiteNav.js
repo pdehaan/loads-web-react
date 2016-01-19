@@ -1,7 +1,6 @@
 'use strict';
 
 import React, { Component } from 'react';
-// import { Link } from 'react-router';
 
 import { Pages } from '../pages';
 import { Link } from '../pages/Page';
@@ -39,6 +38,14 @@ class SiteNav extends Component {
       href: Pages.Home.nav.href,
       label: this.brandName
     };
+    const gitHubBannerStyle = {
+      border: 0,
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      zIndex: 100
+    };
+
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
@@ -67,6 +74,7 @@ class SiteNav extends Component {
               <ListItemWrapper data={Pages.Contact.nav} />
               <ListItemWrapper data={Pages.Logout.nav} />
             </ul>
+            <a href="https://github.com/pdehaan/loads-web-react"><img style={gitHubBannerStyle} src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" /></a>
           </div>
         </div>
       </nav>
