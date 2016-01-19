@@ -1,6 +1,6 @@
 'use strict';
 
-import path from 'path';
+import { join, resolve } from 'path';
 import webpack from 'webpack';
 
 export default {
@@ -10,7 +10,7 @@ export default {
     './src/index.js'
   ],
   output: {
-    path: path.join(__dirname, 'build'),
+    path: join(__dirname, 'build'),
     filename: 'bundle.js'
   },
   module: {
@@ -24,6 +24,7 @@ export default {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ minimize: true }),
     new webpack.NoErrorsPlugin()
   ]
 };
