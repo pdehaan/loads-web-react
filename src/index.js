@@ -2,9 +2,10 @@
 
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 
 import { Pages } from './components/pages';
+import NotFound from './components/pages/NotFound';
 import Header from './components/partials/Header';
 import Footer from './components/partials/Footer';
 
@@ -22,8 +23,33 @@ class App extends Component {
   }
 }
 
+// Dynamically generate our <Route>s using the `Pages` object.
+const childRoutes = Object.keys(Pages)
+  .map((page) => {
+    const Page = Pages[page];
+    return {
+      path: Page.nav.href,
+      component: Page
+    };
+  });
+
+// Add our catch-all `NotFound` route last.
+childRoutes.push({
+  path: NotFound.nav.href,
+  component: NotFound
+});
+
+const routes = {
+  component: App,
+  childRoutes: childRoutes
+};
+
 render(
-  <Router history={browserHistory}>
+  <Router history={browserHistory} routes={routes} />,
+  document.getElementById('App')
+);
+
+/*
     <Route path={Pages.Home.nav.href} component={App}>
       <IndexRoute component={Pages.Home} />
       <Route path={Pages.About.nav.href} component={Pages.About} />
@@ -39,6 +65,4 @@ render(
       <Route path={Pages.RunDetails.nav.href} component={Pages.RunDetails} />
       <Route path={Pages.NotFound.nav.href} component={Pages.NotFound} />
     </Route>
-  </Router>,
-  document.getElementById('App')
-);
+*/

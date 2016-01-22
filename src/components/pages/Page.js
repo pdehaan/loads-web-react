@@ -3,8 +3,6 @@
 import React, { Component as ReactComponent } from 'react';
 import { Link as ReactLink } from 'react-router';
 
-import { Pages } from './index';
-
 export default React;
 
 export class Component extends ReactComponent {
@@ -13,10 +11,6 @@ export class Component extends ReactComponent {
       href: undefined,
       label: undefined
     };
-  }
-
-  get page() {
-    return Pages[this.constructor.name].nav;
   }
 
   get pageTitle() {

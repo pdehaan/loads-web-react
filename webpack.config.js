@@ -9,6 +9,13 @@ export default {
     'webpack/hot/dev-server',
     './src/index.js'
   ],
+  resolve: {
+      extensions: ['', '.js', '.jsx', '.scss'],
+      alias: {
+        'es6-promise': join(__dirname, 'node_modules', 'es6-promise', 'dist', 'es6-promise.js'),
+        'fetch': join(__dirname, 'node_modules', 'whatwg-fetch', 'fetch.js')
+      }
+  },
   output: {
     path: join(__dirname, 'build'),
     filename: 'bundle.js'
@@ -24,6 +31,10 @@ export default {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      'Promise': 'es6-promise',
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
     new webpack.optimize.UglifyJsPlugin({ minimize: true }),
     new webpack.NoErrorsPlugin()
   ]

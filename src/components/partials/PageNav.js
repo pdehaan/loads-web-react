@@ -23,6 +23,8 @@ export default class PageNav extends Component {
   render() {
     const pageTitle = this.props.pageTitle || (this.props.page && this.props.page.label);
 
+    document.title = 'Loads V2: ' + pageTitle || '';
+
     return (
       <header>
         <Breadcrumbs links={this.props.breadcrumbs} nav={this.props.page} />

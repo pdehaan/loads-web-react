@@ -7,14 +7,13 @@ import ClusterManagementHealthCheck from './ClusterManagement_HealthCheck';
 import Contact from './Contact';
 import Home from './Home';
 import Logout from './Logout';
-import NotFound from './NotFound';
 import Project from './Project';
 import ProjectBuilder from './Project_Builder';
 import ProjectLookup from './Project_Lookup';
 import Reference from './Reference';
 import RunDetails from './RunDetails';
 
-const Pages = {
+export const Pages = {
   About,
   ClusterManagement,
   ClusterManagementAgentStatus,
@@ -22,12 +21,9 @@ const Pages = {
   Contact,
   Home,
   Logout,
-  NotFound,
   Project,
   ProjectBuilder,
   ProjectLookup,
   Reference,
   RunDetails
 };
-
-export { Pages };

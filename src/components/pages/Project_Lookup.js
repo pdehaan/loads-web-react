@@ -21,7 +21,7 @@ export default class ProjectLookup extends Component {
 
   render() {
     return (
-      <Page breadcrumbs={this.breadcrumbs} nav={ProjectLookup.nav}>
+      <Page nav={ProjectLookup.nav} breadcrumbs={this.breadcrumbs}>
         <p>Project Lookup details page.</p>
       </Page>
     );

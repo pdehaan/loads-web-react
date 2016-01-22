@@ -21,7 +21,7 @@ export default class ClusterManagementHealthCheck extends Component {
 
   render() {
     return (
-      <Page breadcrumbs={this.breadcrumbs} nav={ClusterManagementHealthCheck.nav}>
+      <Page nav={ClusterManagementHealthCheck.nav} breadcrumbs={this.breadcrumbs}>
         <p>Health Check details page</p>
       </Page>
     );

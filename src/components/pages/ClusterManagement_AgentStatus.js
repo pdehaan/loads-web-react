@@ -21,7 +21,7 @@ export default class ClusterManagementAgentStatus extends Component {
 
   render() {
     return (
-      <Page breadcrumbs={this.breadcrumbs} nav={ClusterManagementAgentStatus.nav}>
+      <Page nav={ClusterManagementAgentStatus.nav} breadcrumbs={this.breadcrumbs}>
         <p>Agent Status details page</p>
       </Page>
     );

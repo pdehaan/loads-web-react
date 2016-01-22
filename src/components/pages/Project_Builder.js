@@ -21,7 +21,7 @@ export default class ProjectBuilder extends Component {
 
   render() {
     return (
-      <Page breadcrumbs={this.breadcrumbs} nav={ProjectBuilder.nav}>
+      <Page nav={ProjectBuilder.nav} breadcrumbs={this.breadcrumbs}>
         <p>Project Builder details page.</p>
       </Page>
     );
