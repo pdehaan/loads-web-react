@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import PageNav from './PageNav';
 
+
 export default class Page extends Component {
   render() {
     return (

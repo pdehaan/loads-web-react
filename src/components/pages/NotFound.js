@@ -1,8 +1,11 @@
 'use strict';
 
-import React, { Component, Link } from './Page';
+import React, { Component } from 'react';
+
 import { Pages } from './index';
 import Page from '../partials/Page';
+import PageLink from '../partials/PageLink';
+
 
 export default class NotFound extends Component {
   static get nav() {
@@ -20,8 +23,8 @@ export default class NotFound extends Component {
           <p>Looks like we weren&#39;t able to find what you were looking for.</p>
         </section>
 
-        <p className="lead">If you think this is a bug, check out the <Link nav={Pages.Contact.nav} /> page.</p>
-        <Link nav={Pages.Home.nav} className="btn btn-primary btn-lg" />
+        <p className="lead">If you think this is a bug, check out the <PageLink nav={Pages.Contact.nav} /> page.</p>
+        <PageLink nav={Pages.Home.nav} className="btn btn-primary btn-lg" />
       </Page>
     );
   }

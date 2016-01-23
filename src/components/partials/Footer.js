@@ -2,12 +2,13 @@
 
 import React, { Component } from 'react';
 
+
 export default class Footer extends Component {
   render() {
     return (
-      <footer className="text-center text-muted">
+      <footer className="small text-center text-muted">
         <hr />
-        <small>&copy; Mozilla {new Date().getFullYear()}</small>
+        <p>&copy; Mozilla {new Date().getFullYear()}</p>
       </footer>
     );
   }

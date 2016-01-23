@@ -1,8 +1,11 @@
 'use strict';
 
-import React, { Component, Link } from './Page';
+import React, { Component } from 'react';
+
 import { Pages } from './index';
 import Page from '../partials/Page';
+import PageLink from '../partials/PageLink';
+
 
 export default class Project extends Component {
   static get nav() {
@@ -18,8 +21,8 @@ export default class Project extends Component {
         <p className="lead">This is the Project link disambiguation page.</p>
         <p>I think you can only get here via breadcrumbs from one of the following pages:</p>
         <ul>
-          <li><Link nav={Pages.ProjectLookup.nav} /></li>
-          <li><Link nav={Pages.ProjectBuilder.nav} /></li>
+          <li><PageLink nav={Pages.ProjectLookup.nav} /></li>
+          <li><PageLink nav={Pages.ProjectBuilder.nav} /></li>
         </ul>
       </Page>
     );

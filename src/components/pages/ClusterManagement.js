@@ -1,8 +1,10 @@
 'use strict';
 
-import React, { Component, Link } from './Page';
+import React, { Component } from 'react';
+
 import { Pages } from './index';
 import Page from '../partials/Page';
+
 
 export default class ClusterManagement extends Component {
   static get nav() {

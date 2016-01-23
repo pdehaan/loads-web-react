@@ -1,7 +1,9 @@
 'use strict';
 
-import React, { Component } from './Page';
+import React, { Component } from 'react';
+
 import Page from '../partials/Page';
+
 
 export default class RunDetails extends Component {
   static get nav() {
