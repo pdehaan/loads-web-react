@@ -6,6 +6,14 @@ import { Pages } from '../pages';
 import PageLink from './PageLink';
 
 
+const ListItemWrapper = (props) => {
+  if (!props.data.active) {
+    return <li><PageLink nav={props.data} /></li>;
+  }
+  return <li className="active">{props.data.label}</li>;
+};
+
+
 export default class Breadcrumbs extends Component {
   render() {
     // If the `props.links` is set to `null` (ie: Home or NotFound routes), then
@@ -26,16 +34,5 @@ export default class Breadcrumbs extends Component {
         {breadcrumbs.map((link, index) => <ListItemWrapper key={index} data={link} />)}
       </ol>
     );
-  }
-}
-
-class ListItemWrapper extends Component {
-  render() {
-    const link = this.props.data;
-
-    if (!link.active) {
-      return <li><PageLink nav={link} /></li>;
-    }
-    return <li className="active">{link.label}</li>;
   }
 }

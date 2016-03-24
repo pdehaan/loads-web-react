@@ -1,19 +1,42 @@
 {
   "results": [
     {
-      "id": "121314sdf3d",
-      "name": "Juan",
-      "age": 34
+      "id": "754dsfsadgd",
+      "name": "loadtest.TestLoop.test_websockets",
+      "isRunning": false,
+      "state": "info"
     },
     {
-      "id": "2sflajf09sdf",
-      "name": "Julio",
-      "age": 39
+      "id": "asfdlaksjf",
+      "name": "loadtest.TestLoop.test_http_calls",
+      "isRunning": false,
+      "state": "danger",
+      "duration": "16 min and 13 sec.",
+      "finished": "13 d ago"
     },
     {
-      "id": "s9203klsdfj",
-      "name": "Ricardo",
-      "age": 25
+      "id": "23423wfsadfa",
+      "name": "loadtest.TestLoop.test_websockets",
+      "isRunning": false,
+      "state": "success",
+      "duration": "16 min and 6 sec.",
+      "finished": "13 d ago"
+    },
+    {
+      "id": "asfdjkasd",
+      "name": "loadtest.TestLoop.test_http_calls",
+      "isRunning": false,
+      "state": "success",
+      "duration": "23 min and 57 sec.",
+      "finished": "13 d ago"
+    },
+    {
+      "id": "asdfaklnsdfk",
+      "name": "loadtest.TestLoop.test_websockets",
+      "isRunning": false,
+      "state": "success",
+      "duration": "15 min and 40 sec.",
+      "finished": "13 d ago"
     }
   ]
 }

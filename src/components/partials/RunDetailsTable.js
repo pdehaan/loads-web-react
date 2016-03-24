@@ -1,8 +1,38 @@
 'use strict';
 
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component, PropTypes } from 'react';
+import ms from 'ms';
 
+import PageLink from './PageLink';
+
+
+function TableRow(props) {
+  const data = props.result;
+
+  const iconMap = (icon, classes) => {
+    const icons = {
+      'danger': 'remove',
+      'info': 'question',
+      'success': 'ok'
+    };
+    return `glyphicon glyphicon-${icons[icon]}-sign ${classes}`;
+  };
+
+  const nav = {
+    href: props.detailsUrl.replace(/:id$/, data.id),
+    label: data.name
+  };
+  const textClass = `text-${data.state}`;
+  const iconClass = iconMap(data.state, textClass);
+
+  return (
+    <tr key={data.id} className={data.state}>
+      <td><span className={iconClass} aria-hidden="true"></span> <b><PageLink nav={nav} className={textClass} /></b></td>
+      <td className="small">{data.duration}</td>
+      <td className="small">{data.finished}</td>
+    </tr>
+  );
+}
 
 export default class RunDetailsTable extends Component {
   constructor(props) {
@@ -10,6 +40,14 @@ export default class RunDetailsTable extends Component {
     this.state = {
       results: [],
       lastsync: new Date()
+    };
+    this.fetchJsonData = this.fetchData.bind(this);
+  }
+
+  static get propTypes() {
+    return {
+      detailsUrl: PropTypes.string.isRequired,
+      refreshInterval: PropTypes.string
     };
   }
 
@@ -19,7 +57,7 @@ export default class RunDetailsTable extends Component {
     // If the `refreshInterval` was specified, set a refresh interval to reload
     // the data.
     if (this.props.refreshInterval) {
-      this.timer = setInterval(this.fetchData.bind(this), this.props.refreshInterval);
+      this.timer = setInterval(this.fetchJsonData, ms(this.props.refreshInterval));
     }
   }
 
@@ -45,30 +83,22 @@ export default class RunDetailsTable extends Component {
 
   render() {
     return (
-      <table className="table">
+      <table className="table table-bordered table-hover">
       <thead>
         <tr>
-          <th>WHAT</th>
-          <th>WHEN</th>
-          <th>WHO</th>
+          <th>Test</th>
+          <th>Duration</th>
+          <th>Finished</th>
         </tr>
       </thead>
       <tbody>
-        {this.state.results.map((result) => {
-          const detailsHref = this.props.detailsUrl.replace(/:id$/, result.id);
-
-          return (
-            <tr key={result.id}>
-              <td><Link to={detailsHref}>{result.name}</Link></td>
-              <td>{result.age}</td>
-              <td>&nbsp;</td>
-            </tr>
-          );
-        })}
+        {this.state.results.map((result) => (
+          <TableRow result={result} detailsUrl={this.props.detailsUrl} />
+        ))}
       </tbody>
       <tfoot>
         <tr>
-          <td colSpan="3" className="small text-right text-muted">Last sync: {this.state.lastsync.toLocaleString()}</td>
+          <td colSpan="3" className="small text-right text-muted">Last sync: <em>{this.state.lastsync.toLocaleString()}</em></td>
         </tr>
       </tfoot>
       </table>

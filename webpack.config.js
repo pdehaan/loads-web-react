@@ -10,11 +10,11 @@ export default {
     './src/index.js'
   ],
   resolve: {
-      extensions: ['', '.js', '.jsx', '.scss'],
-      alias: {
-        'es6-promise': join(__dirname, 'node_modules', 'es6-promise', 'dist', 'es6-promise.js'),
-        'fetch': join(__dirname, 'node_modules', 'whatwg-fetch', 'fetch.js')
-      }
+    extensions: ['', '.js', '.jsx', '.scss'],
+    alias: {
+      'es6-promise': resolve(__dirname, 'node_modules/es6-promise/dist/es6-promise.js'),
+      'fetch': resolve(__dirname, 'node_modules/whatwg-fetch/fetch.js')
+    }
   },
   output: {
     path: join(__dirname, 'build'),
@@ -35,7 +35,17 @@ export default {
       'Promise': 'es6-promise',
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
-    new webpack.optimize.UglifyJsPlugin({ minimize: true }),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    })
   ]
 };

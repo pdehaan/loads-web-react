@@ -1,13 +1,11 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
 
-export default class PageLink extends Component {
-  render() {
-    return (
-      <Link to={this.props.nav.href} className={this.props.className}>{this.props.nav.label}</Link>
-    );
-  }
+export default function PageLink(props) {
+  return (
+    <Link to={props.nav.href} className={props.className}>{props.nav.label}</Link>
+  );
 }

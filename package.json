@@ -4,10 +4,11 @@
   "version": "0.1.0",
   "author": "Peter deHaan",
   "dependencies": {
-    "history": "^1.17.0",
+    "history": "^2.0.1",
+    "ms": "^0.7.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-    "react-router": "^1.0.3"
+    "react-router": "^2.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.3.17",
@@ -18,25 +19,27 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-3": "^6.3.13",
     "css-loader": "^0.23.0",
-    "es6-promise": "3.0.2",
-    "eslint": "^1.10.3",
+    "es6-promise": "^3.1.2",
+    "eslint": "^2.4.0",
     "eslint-loader": "^1.1.1",
-    "eslint-plugin-react": "^3.12.0",
-    "exports-loader": "0.6.2",
-    "imports-loader": "0.6.5",
-    "merge": "1.2.0",
+    "eslint-plugin-react": "^4.2.3",
+    "exports-loader": "^0.6.3",
+    "imports-loader": "^0.6.5",
+    "merge": "^1.2.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "whatwg-fetch": "0.11.0"
+    "whatwg-fetch": "^0.11.0"
   },
   "license": "WTFPL",
   "main": "src/index.js",
   "private": true,
   "repository": "pdehaan/loads-web-react",
   "scripts": {
-    "build": "babel-node -- ./node_modules/.bin/webpack --progress",
+    "build": "NODE_ENV=production babel-node -- ./node_modules/.bin/webpack --progress",
     "lint": "eslint .",
-    "start": "babel-node -- ./node_modules/.bin/webpack-dev-server --progress"
+    "prebuild": "npm run lint",
+    "prestart": "npm run lint",
+    "start": "babel-node -- ./node_modules/.bin/webpack-dev-server"
   }
 }

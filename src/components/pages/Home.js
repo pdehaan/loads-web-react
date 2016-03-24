@@ -20,7 +20,7 @@ export default class Home extends Component {
       <Page breadcrumbs={null}>
         <p className="lead">This is the home page.  There are many like it, but this one is mein.</p>
 
-        <RunDetailsTable dataUrl="data/results.json" refreshInterval="5000" detailsUrl={Pages.RunDetails.nav.href} />
+        <RunDetailsTable dataUrl="data/results.json" refreshInterval="5s" detailsUrl={Pages.RunDetails.nav.href} />
 
         <div className="alert alert-danger" role="alert">
           <p><strong>DEBUG:</strong> See sample <a href="#/uhoh" className="alert-link">404</a> page.</p>

@@ -1,15 +1,13 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React from 'react';
 
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <footer className="small text-center text-muted">
-        <hr />
-        <p>&copy; Mozilla {new Date().getFullYear()}</p>
-      </footer>
-    );
-  }
+export default function Footer() {
+  return (
+    <footer className="small text-center text-muted">
+      <hr />
+      <p>&copy; Mozilla {new Date().getFullYear()}</p>
+    </footer>
+  );
 }

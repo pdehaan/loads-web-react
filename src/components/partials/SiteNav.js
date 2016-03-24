@@ -6,6 +6,23 @@ import PageLink from './PageLink';
 import { Pages } from '../pages';
 
 
+const ListItemWrapper = (props) => (
+  <li><PageLink nav={props.data} /></li>
+);
+
+const DropdownItemWrapper = (props) => (
+  <li className="dropdown">
+    <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{props.data.label} <span className="caret"></span></a>
+    <ul className="dropdown-menu">
+      {props.children}
+    </ul>
+  </li>
+);
+
+const GitHubBanner = (props) => (
+  <a href={props.url}><img id="githubBanner" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" /></a>
+);
+
 export default class SiteNav extends Component {
   get brandName() {
     return this.props.brandName || 'Loads v.DEUX';
@@ -55,43 +72,28 @@ export default class SiteNav extends Component {
   }
 }
 
-class ListItemWrapper extends Component {
-  render() {
-    return (
-      <li><PageLink nav={this.props.data} /></li>
-    );
-  }
+
+/*
+function ListItemWrapper(props) {
+  return (
+    <li><PageLink nav={props.data} /></li>
+  );
 }
 
-class DropdownItemWrapper extends Component {
-  render() {
-    const link = this.props.data;
-
-    return (
-      <li className="dropdown">
-        <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{link.label} <span className="caret"></span></a>
-        <ul className="dropdown-menu">
-          {this.props.children}
-        </ul>
-      </li>
-    );
-  }
+function DropdownItemWrapper(props) {
+  return (
+    <li className="dropdown">
+      <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{props.data.label} <span className="caret"></span></a>
+      <ul className="dropdown-menu">
+        {props.children}
+      </ul>
+    </li>
+  );
 }
 
-class GitHubBanner extends Component {
-  get gitHubBannerStyle() {
-    return {
-      border: 0,
-      position: 'absolute',
-      right: 0,
-      top: 0,
-      zIndex: 100
-    };
-  }
-
-  render() {
-    return (
-      <a href={this.props.url}><img style={this.gitHubBannerStyle} src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" /></a>
-    );
-  }
+function GitHubBanner(props) {
+  return (
+    <a href={props.url}><img id="githubBanner" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" /></a>
+  );
 }
+*/
