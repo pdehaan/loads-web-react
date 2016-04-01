@@ -1,20 +1,23 @@
 'use strict';
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import Page from '../partials/Page';
 
-const pageTitle = <span>Contact <small>(aka: <code>git blame</code>)</small></span>;
+export default class Contact extends Component {
+  static get href() {
+    return '/contact';
+  }
 
-export default function Contact() {
-  return (
-    <Page nav={Contact.nav} pageTitle={pageTitle}>
-      <p>Site not working? Blame pdehaan and rpapa.</p>
-    </Page>
-  );
+  static get title() {
+    return 'Contact';
+  }
+
+  render() {
+    return (
+      <Page pageTitle={Contact.title}>
+        <p>Site not working? Blame pdehaan and rpapa.</p>
+      </Page>
+    );
+  }
 }
-
-Contact.nav = {
-  href: '/contact',
-  label: 'Contact'
-};

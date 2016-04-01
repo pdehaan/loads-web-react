@@ -8,22 +8,23 @@ import PageLink from '../partials/PageLink';
 
 
 export default class Project extends Component {
-  static get nav() {
-    return {
-      href: '/project',
-      label: 'Project'
-    };
+  static get href() {
+    return '/project';
+  }
+
+  static get title() {
+    return 'Project';
   }
 
   render() {
     return (
-      <Page nav={Project.nav}>
-        <p className="lead">This is the Project link disambiguation page.</p>
-        <p>I think you can only get here via breadcrumbs from one of the following pages:</p>
+      <Page pageTitle={Project.title}>
         <ul>
-          <li><PageLink nav={Pages.ProjectLookup.nav} /></li>
-          <li><PageLink nav={Pages.ProjectBuilder.nav} /></li>
+          <li><PageLink component={Pages.ProjectLookup} /></li>
+          <li><PageLink component={Pages.ProjectBuilder} /></li>
         </ul>
+
+        { this.props.children }
       </Page>
     );
   }

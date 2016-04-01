@@ -3,6 +3,8 @@
 import { join, resolve } from 'path';
 import webpack from 'webpack';
 
+import pkg from './package.json';
+
 export default {
   devtool: 'source-map',
   entry: [
@@ -37,12 +39,13 @@ export default {
     }),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
+      __CONFIG__: JSON.stringify(pkg),
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
+        NODE_ENV: JSON.stringify('development')
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
+      minimize: false,
       compress: {
         warnings: false
       }

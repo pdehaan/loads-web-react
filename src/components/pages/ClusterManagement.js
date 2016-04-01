@@ -1,30 +1,50 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { Nav, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 import { Pages } from './index';
 import Page from '../partials/Page';
-import PageLink from '../partials/PageLink';
+
+
+const NavItemLink = (props) => {
+  return (
+    <LinkContainer to={ props.component.href || '' }>
+      <NavItem>{ props.component.title }</NavItem>
+    </LinkContainer>
+  );
+};
 
 
 export default class ClusterManagement extends Component {
-  static get nav() {
-    return {
-      href: '/clustermanagement',
-      label: 'Cluster Management'
-    };
+  static get href() {
+    return '/clustermanagement';
+  }
+
+  static get title() {
+    return 'Cluster Management';
   }
 
   render() {
     return (
-      <Page nav={ClusterManagement.nav}>
-        <p className="lead">This is the Cluster Management link disambiguation page.</p>
-        <p>I think you can only get here via breadcrumbs from one of the following pages:</p>
-        <ul>
-          <li><PageLink nav={Pages.ClusterManagementAgentStatus.nav} /></li>
-          <li><PageLink nav={Pages.ClusterManagementHealthCheck.nav} /></li>
-        </ul>
+      <Page pageTitle={ ClusterManagement.title }>
+        <Nav bsStyle="tabs">
+          <NavItemLink component={ Pages.ClusterManagementAgentStatus } />
+          <NavItemLink component={ Pages.ClusterManagementHealthCheck } />
+        </Nav>
+
+        { this.props.children }
       </Page>
     );
   }
 }
+
+/*
+<LinkContainer to={ Pages.ClusterManagementAgentStatus.href }>
+  <NavItem>{ Pages.ClusterManagementAgentStatus.title }</NavItem>
+</LinkContainer>
+<LinkContainer to={ Pages.ClusterManagementHealthCheck.href }>
+  <NavItem>{ Pages.ClusterManagementHealthCheck.title }</NavItem>
+</LinkContainer>
+*/

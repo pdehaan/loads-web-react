@@ -8,11 +8,12 @@ import PageLink from '../partials/PageLink';
 
 
 export default class NotFound extends Component {
-  static get nav() {
-    return {
-      href: '*',
-      label: 'Page Not Found'
-    };
+  static get href() {
+    return '*';
+  }
+
+  static get title() {
+    return 'Page Not Found';
   }
 
   render() {
@@ -23,8 +24,8 @@ export default class NotFound extends Component {
           <p>Looks like we weren&#39;t able to find what you were looking for.</p>
         </section>
 
-        <p className="lead">If you think this is a bug, check out the <PageLink nav={Pages.Contact.nav} /> page.</p>
-        <PageLink nav={Pages.Home.nav} className="btn btn-primary btn-lg" />
+        <p className="lead">If you think this is a bug, check out the <PageLink component={Pages.Contact} /> page.</p>
+        <PageLink component={Pages.Home} className="btn btn-primary btn-lg" />
       </Page>
     );
   }

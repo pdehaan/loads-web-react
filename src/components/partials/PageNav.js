@@ -1,19 +1,37 @@
 'use strict';
 
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 
-import Breadcrumbs from './Breadcrumbs';
+// import Breadcrumbs from './Breadcrumbs';
 
 
 export default class PageNav extends Component {
   render() {
     const pageTitle = this.props.pageTitle || (this.props.page && this.props.page.label);
-
-    document.title = 'Loads V2: ' + pageTitle || '';
+    const meta = [
+      {
+        property: 'og:title',
+        content: pageTitle
+      },
+      {
+        property: 'charset',
+        content: 'utf-8'
+      }
+    ];
+    const htmlAttrs = {
+      lang: 'en'
+    };
 
     return (
       <header>
-        <Breadcrumbs links={this.props.breadcrumbs} nav={this.props.page} />
+        <Helmet htmlAttributes={htmlAttrs}
+          title={pageTitle}
+          titleTemplate="Loads V2 - %s"
+          defaultTitle="Loads V2 - Home"
+          meta={meta} />
+
+        { /* <Breadcrumbs links={this.props.breadcrumbs} nav={this.props.page} /> */ }
         <PageTitleWrapper title={pageTitle} />
       </header>
     );

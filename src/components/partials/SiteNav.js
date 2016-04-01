@@ -1,18 +1,18 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
-import PageLink from './PageLink';
+// import PageLink from './PageLink';
 import { Pages } from '../pages';
 
-
 const ListItemWrapper = (props) => (
-  <li><PageLink nav={props.data} /></li>
+  <li><Link to={props.href}>{props.title}</Link></li>
 );
 
 const DropdownItemWrapper = (props) => (
   <li className="dropdown">
-    <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{props.data.label} <span className="caret"></span></a>
+    <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{props.title} <span className="caret"></span></a>
     <ul className="dropdown-menu">
       {props.children}
     </ul>
@@ -30,8 +30,8 @@ export default class SiteNav extends Component {
 
   get brandNav() {
     return {
-      href: Pages.Home.nav.href,
-      label: this.brandName
+      href: Pages.Home.href,
+      title: this.brandName
     };
   }
 
@@ -46,25 +46,25 @@ export default class SiteNav extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <PageLink className="navbar-brand" nav={this.brandNav} />
+            <Link className="navbar-brand" to={Pages.Home.href}>{this.brandName}</Link>
           </div>
 
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
               {/* <ListItemWrapper data={Pages.About.nav} /> */}
-              <DropdownItemWrapper data={Pages.Project.nav}>
+              {/* <DropdownItemWrapper data={Pages.Project.nav}>
                 <ListItemWrapper data={Pages.ProjectLookup.nav} />
                 <ListItemWrapper data={Pages.ProjectBuilder.nav} />
+              </DropdownItemWrapper> */}
+              <DropdownItemWrapper href={Pages.ClusterManagement.href} title={Pages.ClusterManagement.title}>
+                <ListItemWrapper href={Pages.ClusterManagementAgentStatus.href} title={Pages.ClusterManagementAgentStatus.title} />
+                <ListItemWrapper href={Pages.ClusterManagementHealthCheck.href} title={Pages.ClusterManagementHealthCheck.title} />
               </DropdownItemWrapper>
-              <DropdownItemWrapper data={Pages.ClusterManagement.nav}>
-                <ListItemWrapper data={Pages.ClusterManagementAgentStatus.nav} />
-                <ListItemWrapper data={Pages.ClusterManagementHealthCheck.nav} />
-              </DropdownItemWrapper>
-              <ListItemWrapper data={Pages.Reference.nav} />
-              <ListItemWrapper data={Pages.Contact.nav} />
-              <ListItemWrapper data={Pages.Logout.nav} />
+              <ListItemWrapper href={Pages.Reference.href} title={Pages.Reference.title} />
+              <ListItemWrapper href={Pages.Contact.href} title={Pages.Contact.title} />
+              <ListItemWrapper href={Pages.Logout.href} title={Pages.Logout.title} />
             </ul>
-            <GitHubBanner url="https://github.com/pdehaan/loads-web-react" />
+            <GitHubBanner url={__CONFIG__.homepage} />
           </div>
         </div>
       </nav>

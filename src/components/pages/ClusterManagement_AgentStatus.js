@@ -1,31 +1,23 @@
 'use strict';
 
 import React, { Component } from 'react';
-
-import { Pages } from './index';
-import Page from '../partials/Page';
-
+import ClusterManagement from './ClusterManagement';
 
 export default class ClusterManagementAgentStatus extends Component {
-  static get nav() {
-    return {
-      href: '/clustermanagement/agentstatus',
-      label: 'Agent Status'
-    };
+  static get href() {
+    return `${ClusterManagement.href}/agentstatus`;
   }
 
-  get breadcrumbs() {
-    return [
-      Pages.Home.nav,
-      Pages.ClusterManagement.nav
-    ];
+  static get title() {
+    return 'Agent Status';
   }
 
   render() {
     return (
-      <Page nav={ClusterManagementAgentStatus.nav} breadcrumbs={this.breadcrumbs}>
-        <p>Agent Status details page</p>
-      </Page>
+      <div>
+        <h2>{ClusterManagementAgentStatus.title}</h2>
+        <p>Agent status page!</p>
+      </div>
     );
   }
 }

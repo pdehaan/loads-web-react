@@ -2,28 +2,21 @@
 
 import React, { Component } from 'react';
 
-import { Pages } from './index';
 import Page from '../partials/Page';
 
 
 export default class ProjectBuilder extends Component {
-  static get nav() {
-    return {
-      href: '/project/builder',
-      label: 'Project Builder'
-    };
+  static get href() {
+    return '/project/builder';
   }
 
-  get breadcrumbs() {
-    return [
-      Pages.Home.nav,
-      Pages.Project.nav
-    ];
+  static get title() {
+    return 'Project Builder';
   }
 
   render() {
     return (
-      <Page nav={ProjectBuilder.nav} breadcrumbs={this.breadcrumbs}>
+      <Page pageTitle={ProjectBuilder.title}>
         <p>Project Builder details page.</p>
       </Page>
     );

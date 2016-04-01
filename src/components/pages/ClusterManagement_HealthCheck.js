@@ -1,31 +1,24 @@
 'use strict';
 
 import React, { Component } from 'react';
-
-import { Pages } from './index';
-import Page from '../partials/Page';
+import ClusterManagement from './ClusterManagement';
 
 
 export default class ClusterManagementHealthCheck extends Component {
-  static get nav() {
-    return {
-      href: '/clustermanagement/healthcheck',
-      label: 'Launch Agent Health Check'
-    };
+  static get href() {
+    return `${ClusterManagement.href}/healthcheck`;
   }
 
-  get breadcrumbs() {
-    return [
-      Pages.Home.nav,
-      Pages.ClusterManagement.nav
-    ];
+  static get title() {
+    return 'Health Check';
   }
 
   render() {
     return (
-      <Page nav={ClusterManagementHealthCheck.nav} breadcrumbs={this.breadcrumbs}>
+      <div>
+        <h2>{ClusterManagementHealthCheck.title}</h2>
         <p>Health Check details page</p>
-      </Page>
+      </div>
     );
   }
 }

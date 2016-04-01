@@ -7,13 +7,13 @@ import ClusterManagementHealthCheck from './ClusterManagement_HealthCheck';
 import Contact from './Contact';
 import Home from './Home';
 import Logout from './Logout';
-import Project from './Project';
-import ProjectBuilder from './Project_Builder';
-import ProjectLookup from './Project_Lookup';
+// import Project from './Project';
+// import ProjectBuilder from './Project_Builder';
+// import ProjectLookup from './Project_Lookup';
 import Reference from './Reference';
 import RunDetails from './RunDetails';
 
-import NotFound from './NotFound';
+// import NotFound from './NotFound';
 
 export const Pages = {
   // About,
@@ -23,19 +23,20 @@ export const Pages = {
   Contact,
   Home,
   Logout,
-  Project,
-  ProjectBuilder,
-  ProjectLookup,
+  // Project,
+  // ProjectBuilder,
+  // ProjectLookup,
   Reference,
   RunDetails
 };
 
+/*
 // Dynamically generate our <Route>s using the `Pages` object.
 const routes = Object.keys(Pages)
   .map((page) => {
     const Page = Pages[page];
     return {
-      path: Page.nav.href,
+      path: Page.href,
       component: Page
     };
   });
@@ -47,3 +48,4 @@ routes.push({
 });
 
 export { routes };
+*/

@@ -6,16 +6,17 @@ import Page from '../partials/Page';
 
 
 export default class Logout extends Component {
-  static get nav() {
-    return {
-      href: '/logout',
-      label: 'Logout'
-    };
+  static get href() {
+    return '/logout';
+  }
+
+  static get title() {
+    return 'Logout';
   }
 
   render() {
     return (
-      <Page nav={Logout.nav}>
+      <Page pageTitle={Logout.title}>
         <p className="text-danger">So you want to log out, eh?</p>
       </Page>
     );
